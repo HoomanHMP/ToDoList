@@ -1,7 +1,8 @@
 import os
 from dotenv import load_dotenv
-from todolist.core.entities.task import Task
-from todolist.data.in_memory_db import database
+from src.core.entities.project import Project
+from src.core.entities.task import Task
+from src.data.in_memory_db import database
 
 load_dotenv()
 
