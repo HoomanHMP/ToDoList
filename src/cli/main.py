@@ -9,7 +9,7 @@ class ToDoListCLI:
 
     def display_menu(self):
         print("\n\n\n\n\n")
-        print("="*50)
+        print("-"*50)
         print("          ToDoList System (Python OOP)")
         print("="*50)
         print("1. List all projects")
@@ -19,7 +19,7 @@ class ToDoListCLI:
         print("5. Add task to project")
         print("6. Change task status")
         print("0. Exit")
-        print("="*50)
+        print("-"*50)
 
     def run(self):
         while True:

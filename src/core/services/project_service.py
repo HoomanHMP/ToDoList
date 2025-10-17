@@ -27,7 +27,7 @@ class ProjectService:
         return True, f"Project '{name}' created successfully. (ID: {new_project.id})"
 
     def get_all_projects(self) -> list[Project]:
-        return sorted(database.projects, key=lambda p: p.created_at)
+        return sorted(database.projects, key = lambda p: p.created_at)
 
     def delete_project(self, project_id: int) -> tuple[bool, str]:
         project_to_delete = None
