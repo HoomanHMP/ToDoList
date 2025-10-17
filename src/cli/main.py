@@ -8,7 +8,8 @@ class ToDoListCLI:
         self.task_service = TaskService()
 
     def display_menu(self):
-        print("\n" + "="*50)
+        print("\n\n\n\n\n")
+        print("="*50)
         print("          ToDoList System (Python OOP)")
         print("="*50)
         print("1. List all projects")

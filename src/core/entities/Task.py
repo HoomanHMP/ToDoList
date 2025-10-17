@@ -6,7 +6,7 @@ class Task:
         self.project_id = project_id
         self.title = title
         self.description = description
-        self.status = "todo"  # مقدار پیش‌فرض طبق سند
+        self.status = "todo"
         self.deadline = deadline
 
     def __str__(self):
