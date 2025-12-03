@@ -1,9 +1,14 @@
+from typing import Optional
 from src.core.services.project_service import ProjectService
 from src.core.services.task_service import TaskService
 
 
 class ToDoListCLI:
-    def __init__(self):
+    def __init__(
+        self,
+        project_service: Optional[ProjectService] = None,
+        task_service: Optional[TaskService] = None,):
+
         self.project_service = ProjectService()
         self.task_service = TaskService()
 
