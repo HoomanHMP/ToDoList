@@ -81,6 +81,10 @@ class ToDoListCLI:
             print(">>> Error: ID must be a number.")
             return
 
+        if(not any(proj.id == project_id for proj in self.project_service.get_all_projects())):
+            print(">>> Error: Project with this ID not found.")
+            return
+
         tasks = self.task_service.get_tasks_by_project(project_id)
         if not tasks:
             print(">>> This project has no tasks.")
