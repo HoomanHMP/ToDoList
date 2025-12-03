@@ -1,9 +1,14 @@
+from typing import Optional
 from src.core.services.project_service import ProjectService
 from src.core.services.task_service import TaskService
 
 
 class ToDoListCLI:
-    def __init__(self):
+    def __init__(
+        self,
+        project_service: Optional[ProjectService] = None,
+        task_service: Optional[TaskService] = None,):
+
         self.project_service = ProjectService()
         self.task_service = TaskService()
 
@@ -79,6 +84,10 @@ class ToDoListCLI:
             project_id = int(input("Project ID: ").strip())
         except ValueError:
             print(">>> Error: ID must be a number.")
+            return
+
+        if(not any(proj.id == project_id for proj in self.project_service.get_all_projects())):
+            print(">>> Error: Project with this ID not found.")
             return
 
         tasks = self.task_service.get_tasks_by_project(project_id)
