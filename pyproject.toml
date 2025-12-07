@@ -1,17 +1,24 @@
 [tool.poetry]
 name = "todolist"
-version = "0.1.0"
-description = "A simple ToDoList manager built with Python OOP."
+version = "0.2.0"
+description = "A simple ToDoList manager built with Python OOP and PostgreSQL."
 authors = ["Your Name <your.email@example.com>"]
 readme = "README.md"
-packages = [{ include = "src" }]
+packages = [{ include = "app" }, { include = "src" }]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 python-dotenv = "^1.0.0"
+sqlalchemy = "^2.0.44"
+alembic = "^1.17.2"
+psycopg2-binary = "^2.9.11"
+schedule = "^1.2.2"
 
 [tool.poetry.scripts]
-todolist = "src.cli.main:main"
+todolist = "app.main:main"
+todolist-autoclose = "app.commands.autoclose_overdue:autoclose_overdue_command"
+todolist-scheduler = "app.commands.scheduler:run_scheduler"
+todolist-legacy = "src.cli.main:main"
 
 [build-system]
 requires = ["poetry-core"]
