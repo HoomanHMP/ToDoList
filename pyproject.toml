@@ -18,7 +18,6 @@ schedule = "^1.2.2"
 todolist = "app.main:main"
 todolist-autoclose = "app.commands.autoclose_overdue:autoclose_overdue_command"
 todolist-scheduler = "app.commands.scheduler:run_scheduler"
-# Legacy entry point for backward compatibility
 todolist-legacy = "src.cli.main:main"
 
 [build-system]
