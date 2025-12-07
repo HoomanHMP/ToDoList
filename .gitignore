@@ -19,3 +19,4 @@ src/__pycache__/__init__.cpython-312.pyc
 .idea/inspectionProfiles/Project_Default.xml
 .idea/vcs.xml
 .env
+.idea/ToDoList.iml
