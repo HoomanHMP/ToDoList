@@ -1,3 +1,4 @@
+import warnings
 from sqlalchemy.orm import Session
 
 from app.repositories.project_repository import ProjectRepository
@@ -32,6 +33,25 @@ class ToDoListCLI:
         print("-" * 50)
 
     def run(self) -> None:
+        warnings.warn(
+            "\n" + "=" * 70 + "\n"
+            "DEPRECATION WARNING: This CLI is deprecated!\n"
+            "The CLI interface will be removed in a future version.\n"
+            "Please migrate to the REST API:\n"
+            "  1. Start API: uvicorn app.api.app:app --reload\n"
+            "  2. Visit: http://localhost:8000/docs\n"
+            "New features will only be added to the API.\n"
+            + "=" * 70,
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        print("\n" + "!" * 70)
+        print("WARNING: This CLI is DEPRECATED!")
+        print("Please use the REST API instead.")
+        print("Start API with: uvicorn app.api.app:app --reload")
+        print("Documentation at: http://localhost:8000/docs")
+        print("!" * 70)
+        
         while True:
             self.display_menu()
             choice = input("Please enter your choice: ").strip()
