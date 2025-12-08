@@ -21,7 +21,6 @@ def get_engine() -> Engine:
     return create_engine(database_url, echo=False)
 
 
-# Create session factory
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=get_engine())
 
 
@@ -35,3 +34,5 @@ def get_session() -> Generator[Session, None, None]:
         raise
     finally:
         session.close()
+
+get_db = get_session

@@ -74,6 +74,13 @@ class TaskService:
     def get_tasks_by_project(self, project_id: int) -> List[Task]:
         return self.task_repository.get_by_project_id(project_id)
 
+    def delete_task(self, task_id: int) -> Tuple[bool, str]:
+        try:
+            task = self.task_repository.delete(task_id)
+            return True, f"Task '{task.title}' deleted successfully."
+        except EntityNotFoundException:
+            return False, "Error: Task with this ID not found."
+
     def close_overdue_tasks(self) -> int:
         overdue_tasks = self.task_repository.get_overdue_tasks()
         for task in overdue_tasks:

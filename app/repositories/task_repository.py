@@ -78,3 +78,11 @@ class TaskRepository:
         task.status = "done"
         task.closed_at = datetime.now()
         return task
+
+    def delete(self, task_id: int) -> Task:
+        task = self.get_by_id(task_id)
+        if not task:
+            raise EntityNotFoundException("Task", task_id)
+
+        self.session.delete(task)
+        return task
